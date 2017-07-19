@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using System;
 using IsUniqueKata;
 
 namespace IsUniqueTest
@@ -10,31 +9,31 @@ namespace IsUniqueTest
 
         private IsUnique _str;
 
-        [SetUp()]
+        [SetUp]
         public void initializeIsUnique()
         {
             _str = new IsUnique();
         }
 
-        [Test()]
+        [Test]
         public void ReturnsFalseForEmptyString()
         {
             Assert.That(_str.HasUniqueCharacters(""), Is.EqualTo(false));
         }
 
-        [Test()]
+        [Test]
         public void ReturnsFalseForAllSameCharacter()
         {
             Assert.That(_str.HasUniqueCharacters("aaa"), Is.EqualTo(false));
         }
 
-        [Test()]
+        [Test]
         public void ReturnsTrueForAllUniqueCharacters()
         {
             Assert.That(_str.HasUniqueCharacters("abcdefghijkl"), Is.EqualTo(true));
         }
 
-        [Test()]
+        [Test]
         public void ReturnsFalseForMultipleSpaces()
         {
             Assert.That(_str.HasUniqueCharacters("a b c"), Is.EqualTo(false));
