@@ -22,11 +22,10 @@ namespace IsUniqueKata
                 }
                 else
                 {
-                    dictionary.Add(x, 1);
+                    dictionary[x] = 1;
                 }
             }
-
-            return dictionary.Values.ToList().All(n => n == 1);
+            return dictionary.All(kvp => kvp.Value == 1);
         }
     }
 }

@@ -7,32 +7,37 @@ namespace IsUniqueTest
     [TestFixture()]
     public class Test
     {
+
+        private IsUnique _str;
+
+        [SetUp()]
+        public void initializeIsUnique()
+        {
+            _str = new IsUnique();
+        }
+
         [Test()]
         public void ReturnsFalseForEmptyString()
         {
-            var str = new IsUnique();
-            Assert.That(str.HasUniqueCharacters(""), Is.EqualTo(false));
+            Assert.That(_str.HasUniqueCharacters(""), Is.EqualTo(false));
         }
 
         [Test()]
         public void ReturnsFalseForAllSameCharacter()
         {
-            var str = new IsUnique();
-            Assert.That(str.HasUniqueCharacters("aaa"), Is.EqualTo(false));
+            Assert.That(_str.HasUniqueCharacters("aaa"), Is.EqualTo(false));
         }
 
         [Test()]
         public void ReturnsTrueForAllUniqueCharacters()
         {
-            var str = new IsUnique();
-            Assert.That(str.HasUniqueCharacters("abcdefghijkl"), Is.EqualTo(true));
+            Assert.That(_str.HasUniqueCharacters("abcdefghijkl"), Is.EqualTo(true));
         }
 
         [Test()]
         public void ReturnsFalseForMultipleSpaces()
         {
-            var str = new IsUnique();
-            Assert.That(str.HasUniqueCharacters("a b c"), Is.EqualTo(false));
+            Assert.That(_str.HasUniqueCharacters("a b c"), Is.EqualTo(false));
         }
     }
 }
