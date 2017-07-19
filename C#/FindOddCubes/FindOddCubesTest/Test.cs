@@ -3,41 +3,42 @@ using FindOddCubesKata;
 
 namespace FindOddCubesTest
 {
-    [TestFixture()]
+    [TestFixture]
     public class Test
     {
-        [Test()]
+
+        private FindOddCubes _foc;
+
+        [SetUp]
+        public void InitFindOddCubes()
+        {
+            _foc = new FindOddCubes();
+        }
+
+        [Test]
         public void ItReturnsZeroForEmptyArray()
         {
-            var x = new FindOddCubes();
-            var actual = x.OddCubeSum(new int[] { });
-            Assert.That(actual, Is.EqualTo(0));
+            Assert.That(_foc.OddCubeSum(new int[] { }), Is.EqualTo(0));
         }
 
-        [Test()]
+        [Test]
         public void ItReturnsZeroForAllEvenNumbers()
         {
-            var x = new FindOddCubes();
-            var actual = x.OddCubeSum(new int[] { 2, 4, 6 });
-            Assert.That(actual, Is.EqualTo(0));
+            Assert.That(_foc.OddCubeSum(new [] { 2, 4, 6 }), Is.EqualTo(0));
         }
 
-        [Test()]
+        [Test]
         public void ItReturnsCubeForOddNumber()
         {
-            var x = new FindOddCubes();
-            var actual = x.OddCubeSum((new int[] { 2, 3, 4 }));
-            Assert.That(actual, Is.EqualTo(27));
+            Assert.That(_foc.OddCubeSum((new [] { 2, 3, 4 })), Is.EqualTo(27));
         }
 
-        [Test()]
+        [Test]
         public void ItPassesTestsFromCodeWars()
         {
-            var x = new FindOddCubes();
-
-            Assert.That(x.OddCubeSum(new int[] { -5, -5, 5, 5 }), Is.EqualTo(0));
-            Assert.That(x.OddCubeSum(new int[] { 1, 2, 3, 4 }), Is.EqualTo(28));
-            Assert.That(x.OddCubeSum(new int[] { -3, -2, 2, 3 }), Is.EqualTo(0));
+            Assert.That(_foc.OddCubeSum(new [] { -5, -5, 5, 5 }), Is.EqualTo(0));
+            Assert.That(_foc.OddCubeSum(new [] { 1, 2, 3, 4 }), Is.EqualTo(28));
+            Assert.That(_foc.OddCubeSum(new [] { -3, -2, 2, 3 }), Is.EqualTo(0));
         }
     }
 }
